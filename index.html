@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<script>
+		// varの問題
+
+		// 同じ名前の変数を再定義できる
+		var a = 1;
+		console.log(a);
+		var a = 2;
+		console.log(a);
+
+		// letでは出来ない
+		let b = 3;
+		console.log(b)
+		// let b = 4 has already been declaredのエラー
+		// console.log(b)
+
+		// ブロックをすり抜ける
+		// letはブロック内とブロック外での挙動となる
+
+		var testVar = 0;
+		let testLet = 1;
+
+		{
+			var testVar = 50;
+			let testLet = 10
+			console.log(testVar); // 50
+			console.log(testLet); // 10
+		}
+
+		console.log(testVar); // 50
+		console.log(testLet); // 1
+
+		// 変数を宣言する前に参照してもエラーにならず
+		// undefinedとなる
+
+		console.log(sampleVar); // undefined
+		var sampleVar = 'sample'
+
+		// console.log(sampleLet); Cannot access 'sampleLet' before initialization
+		// let sampleLet = 'sample'
+
+
+///////////////////////////////////////////////////////////
+// もらいものの面白かったコード
+		var c = 21;
+
+		var d = function () {
+
+			console.log(c); // undefined
+			var c = 20;
+		}
+
+		d();
+////////////////////////////////////////////////////////////
+
+		// let、constがあってもvarが使える理由
+		// varの挙動を変更してしまうと、すでにvarで書かれたコードの動作が
+		// 変わってしまい、動かなくなるアプリがでてくる。
+
+	</script>
+</body>
+
+</html>
